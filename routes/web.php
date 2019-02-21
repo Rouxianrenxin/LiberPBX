@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
+
+/*
+ * laravel default routes. We no longer need them.
+ */
+/*Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');*/
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*User Front end (customers)*/
+Route::get('/app/{any}', 'SpaController@user')->where('any', '.*');
+
+/*Admin Access*/
+Route::get('/app/admin/{any}', 'SpaController@admin')->where('any', '.*');
+
